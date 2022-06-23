@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
 
-</body>
-</html>
+
+{% block content %}
+<div class="container-fluid mt-3">
+    <div class="row">
+        {% if card.image %}
+        <div class="col-md-auto"><img src="{{ card.image.url }}"
+        class="main-image"></div>
+        {% endif %}
+        <div class="col">
+            <h2>{{ card.title }}</h2>
+            <p>{{ card.description }}</p>
+        </div>
+    </div>
+    <p>There are {{ comments|length}} comments</p>
+    {% if comments %}
+    <h2>Comments</h2>
+    {% for comment in comments %}
+    <div>
+        <h4>{{ comment.autor}}</h4>
+        {{ comment.body }} {{ comment.created_on }}
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <h2>No comments yet, be first...</h2>
+    {% endif %}
+</div>
+
+<form action="{% url 'web:detail' card.pk %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+{% endblock %}
