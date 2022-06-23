@@ -10,7 +10,6 @@ def index(request):
     return render(request, 'index.html', {'cards': cards})
 
 
-
 def detail(request, pk):
     card = Card.objects.get(pk=pk)
     form = CommentForm()

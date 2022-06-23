@@ -12,6 +12,20 @@
     <title>top_5_Minsk</title>
 </head>
 <body>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Цвет фона</title>
+    <style>
+        body {
+            background-color: #81d4fa; /* Цвет фона */
+            color: #FA1; /* Цвет текста */
+        }
+    </style>
+</head>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -29,12 +43,26 @@
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Форум
+
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Новости Минска</a>
-                    <a class="dropdown-item" href="#">Культурный город</a>
+
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Отзывы туристов</a>
+                    <!DOCTYPE html>
+
+                    <html>
+                    <head>
+                        <meta charset="utf-8">
+                        <title>Кнопка</title>
+                    </head>
+                    <body>
+                    <form action="page/new.html" target="_blank">
+                        <button>Новости Минска</button>
+                        <button>Культурный город</button>
+                        <button>Отзывы туристов</button>
+                    </form>
+                    </body>
+                    </html>
                 </div>
             </li>
         </ul>
@@ -44,6 +72,7 @@
         </form>
     </div>
 </nav>
+<div class="text-center">
 <h1>Достопримечательности Минска <span class="badge badge-secondary"></span></h1>
 <div class="text-center">
 
@@ -51,21 +80,20 @@
 
         {% for card in cards %}
 
-        <div class="col mb-4">
-            <div class="card" style="width: 18rem;">
-                <img src="{{ card.image.url }}" class="card-img-top" alt="..."
-                     style="height: 300px; width: 100%; display: block ">
-                <div class="card-body">
-                    <h3 class="card-title">{{ card.title }}</h3>
-                    <p class="card-text">{{ card.description|truncatewords:10 }}</p>
-                    <div class="text-center">
-                        <a href="{% url 'web:detail' card.pk %}" class="btn btn-warning">Подробнее..</a>
+            <div class="col mb-4">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ card.image.url }}" class="card-img-top" alt="..."
+                         style="height: 300px; width: 100%; display: block ">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ card.title }}</h3>
+                        <p class="card-text">{{ card.description|truncatewords:10 }}</p>
+                        <div class="text-center">
+                            <a href="{% url 'web:detail' card.pk %}" class="btn btn-warning">Подробнее..</a>
 
-
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
 
     </div>

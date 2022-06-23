@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from forum.models import Card
+
+
+def index(request):
+    cards = Card.objects.all()
+    return render(request, 'index.html', {'cards': cards})
