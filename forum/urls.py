@@ -1,6 +1,6 @@
 from django.urls import path
 
-from web.views import index, detail
+from forum.views import index, detail
 
 app_name = 'forum'
 urlpatterns = [

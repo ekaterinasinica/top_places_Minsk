@@ -14,9 +14,9 @@
             <p>{{ card.description }}</p>
         </div>
     </div>
-    <p>There are {{ comments|length}} comments</p>
+    <p>Количество комментариев {{ comments|length}} </p>
     {% if comments %}
-    <h2>Comments</h2>
+    <h2>Комментарии</h2>
     {% for comment in comments %}
     <div>
         <h4>{{ comment.autor}}</h4>

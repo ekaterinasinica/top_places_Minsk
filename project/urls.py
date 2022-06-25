@@ -22,8 +22,9 @@ from project import settings
 
 urlpatterns = [
     path('', include('web.urls')),
-    path('', include('forum.urls')),
+
     path('admin/', admin.site.urls),
+    path('', include('forum.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
