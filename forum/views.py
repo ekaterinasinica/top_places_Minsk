@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 from forum.forms import CommentForm
 from forum.models import Card, Comment
@@ -28,4 +27,3 @@ def detail(request, pk):
         "form": form
     }
     return render(request, "detail.html", context)
-
